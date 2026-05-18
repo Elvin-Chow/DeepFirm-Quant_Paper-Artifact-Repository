@@ -305,8 +305,8 @@ Horizon & 5 & 0.600 & 34,086 & 0.0000 & 0 & 0.0000 & 0.0000 & 0.0000 & 0.1185 & 
   \label{fig:threshold}
 \end{figure*}
 
-\subsection{Zero-Security-Overlap Supplement}
-A supplemental holdout file was constructed by checking every recommended ticker against the frozen training-domain tickers in \texttt{global\_h1} metadata. It contains 10 portfolios, two per market, with zero same-market security overlap. Running the frozen crisis artifacts on this supplement with sandbox disabled produced 36,114 prediction rows and zero skipped rows. This is a crisis-warning-only supplement; baseline comparison, allocation OOS, and allocation ablation were not run for this portfolio file. The supplemental results are consistent with the main evaluation: H1 achieved ROC-AUC 0.6290, PR-AUC 0.0971, Brier 0.0480, recall@0.60 0.0043, and top-decile lift 2.3551; H5 achieved ROC-AUC 0.6139, PR-AUC 0.0895, Brier 0.0534, recall@0.60 0.0000, and top-decile lift 1.8100. This supplement reduces the ticker-overlap attack surface, but it does not change the main interpretation.
+\subsection{Zero-Security-Overlap Transfer Check}
+A zero-security-overlap transfer-check portfolio file was constructed by checking every recommended ticker against the frozen training-domain tickers in \texttt{global\_h1} metadata. It contains 10 portfolios, two per market, with zero same-market security overlap. Running the frozen crisis artifacts on this transfer check with sandbox disabled produced 36,114 prediction rows and zero skipped rows. Baseline comparison, allocation OOS, and allocation ablation were not run for this panel; therefore, the zero-security-overlap evidence is limited to crisis-warning transfer behavior. The transfer-check results are consistent with the main evaluation: H1 achieved ROC-AUC 0.6290, PR-AUC 0.0971, Brier 0.0480, recall@0.60 0.0043, and top-decile lift 2.3551; H5 achieved ROC-AUC 0.6139, PR-AUC 0.0895, Brier 0.0534, recall@0.60 0.0000, and top-decile lift 1.8100. This transfer check reduces the ticker-overlap attack surface, but it does not change the main interpretation.
 
 \subsection{Baseline Comparison}
 Table~\ref{tab:baseline} reports the final-20\% baseline comparison, which produced 82,086 prediction rows and 300 metric rows with sandbox disabled. For H1, frozen calibrated XGBoost achieved ROC-AUC 0.6055 and PR-AUC 0.0905, while raw XGBoost achieved slightly higher ROC-AUC 0.6095 and PR-AUC 0.0992. The calibration layer substantially improved Brier score and log-loss: calibrated XGBoost had Brier/log-loss of 0.0504/0.2055, compared with 0.2084/0.6081 for raw XGBoost.
@@ -495,7 +495,7 @@ Both frozen crisis-warning artifacts carry \path{degraded_validation} status. Th
 
 The default 0.60 warning threshold has extremely weak recall in the real-data holdout. It flags only 11 rows globally and no H5 rows, so it should not be deployed as a recall-sensitive crisis trigger without recalibration, threshold tuning, and cost-sensitive evaluation. The more defensible interpretation is ranking surveillance, where top-score portfolios form a review queue rather than an automated alarm.
 
-The main holdout is portfolio-level external validation, not a fully zero-security-overlap transfer test. Several holdout portfolios share some individual constituents with the training-domain portfolios. The appendix supplement is the only zero-security-overlap evidence, and it is crisis-warning-only: baseline comparison, allocation OOS, and allocation ablation were not run on that supplement.
+The main holdout is portfolio-level external validation, not a fully zero-security-overlap transfer test. Several holdout portfolios share some individual constituents with the training-domain portfolios. The appendix transfer check is the only zero-security-overlap evidence. Baseline comparison, allocation OOS, and allocation ablation were not run for this panel; therefore, the zero-security-overlap evidence is limited to crisis-warning transfer behavior.
 
 The real-data evidence remains exposed to provider and data drift. Provider availability, symbol mapping, corporate actions, late corrections, trading-calendar handling, and regional market microstructure can change over time. The audit contract can also fail through artifact dependency mismatch, including missing artifact files, schema-hash mismatch, package-version changes, XGBoost native-contribution behavior, or provider API changes.
 
@@ -508,9 +508,9 @@ This paper presented an auditable explainable AI framework for multi-market tail
 Future work should expand the holdout pool, add richer macro and cross-asset factors, develop market-specific factor models, introduce online drift monitoring, and strengthen calibration and threshold selection under explicit cost functions.
 
 \appendices
-\section{Supplemental Zero-Security-Overlap Crisis-Warning Holdout}
+\section{Zero-Security-Overlap Crisis-Warning Details}
 \label{app:zero-overlap}
-The zero-security-overlap supplement evaluates only the frozen crisis-warning artifacts. Baseline comparison, allocation OOS, and allocation ablation were not run for this supplement and are not used as manuscript evidence. The supplement produced 36,114 prediction rows with sandbox disabled and zero skipped crisis-warning rows. Table~\ref{tab:zero-crisis} reports the market-level metrics.
+The zero-security-overlap transfer check evaluates only the frozen crisis-warning artifacts. Baseline comparison, allocation OOS, and allocation ablation were not run for this panel; therefore, the zero-security-overlap evidence is limited to crisis-warning transfer behavior. The transfer check produced 36,114 prediction rows with sandbox disabled and zero skipped crisis-warning rows. Table~\ref{tab:zero-crisis} reports the market-level metrics.
 
 \begin{table*}[t]
 \caption{Zero-Security-Overlap Crisis-Warning Metrics}
@@ -536,14 +536,14 @@ H & Market & Rows & Pos. & ROC & PR & Brier & Recall@0.60 & Top-decile lift \\
 \tabnote{Metrics use 36,114 real-data zero-security-overlap holdout predictions with sandbox disabled across 1D and 5D horizons. No crisis-warning rows were skipped.}
 \end{table*}
 
-At global threshold 0.10, the supplement had precision 0.1703 and recall 0.1179. At 0.60, only 8 rows were flagged out of 36,114. This mirrors the main paper finding: the supplement is more useful for ranking surveillance than for a fixed binary trigger.
+At global threshold 0.10, the transfer check had precision 0.1703 and recall 0.1179. At 0.60, only 8 rows were flagged out of 36,114. This mirrors the main paper finding: ranking surveillance is better supported than a fixed binary trigger.
 
 \clearpage
 
 \raggedbottom
 
 \section*{Data and Code Availability}
-The reproducibility package contains the source code, experiment scripts and configs, frozen H1/H5 crisis-warning artifacts, generated result CSV/JSON files, paper tables, figures, the SHA-256 result manifest, and the reproducibility README. A public repository or archival capsule will be provided before final publication: repository URL TODO; release Git commit SHA TODO; archive DOI TODO. The release commit SHA should be filled after the archival repository is tagged. Real-market data were accessed through live providers such as Yahoo Finance and AKShare and are documented through generated outputs, provenance fields, and skip logs rather than redistributed as a raw vendor dataset. Paper metrics use sandbox data disabled; provider failures are reported in the data availability log instead of being filled with synthetic data.
+The reproducibility package contains the source code, experiment scripts and configs, frozen H1/H5 crisis-warning artifacts, generated result CSV/JSON files, paper tables, figures, the SHA-256 result manifest, and the reproducibility README. The public paper artifact repository is available at \url{https://github.com/Elvin-Chow/DeepFirm-Quant_Paper-Artifact-Repository}. The release tag is \texttt{v0.1-submission}, with release commit SHA \texttt{bb5053309084281e8892b0ea730925720ab6e09f}. An archival DOI will be provided through a release archive when available. Real-market data were accessed through live providers such as Yahoo Finance and AKShare and are documented through generated outputs, provenance fields, and skip logs rather than redistributed as a raw vendor dataset. Paper metrics use sandbox data disabled; provider failures are reported in the data availability log instead of being filled with synthetic data.
 
 \section*{Funding}
 This research received no external funding and was self-funded by the author.

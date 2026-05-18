@@ -4,7 +4,7 @@ Reproducibility package for the manuscript:
 
 **"An Auditable Explainable AI Framework for Multi-Market Tail-Risk Warning and Leakage-Guarded Bayesian Portfolio Allocation"**
 
-This repository is the paper-oriented experiment version of DeepFirm Quant. It is organized for reviewers, collaborators, and future readers who need to inspect or rerun the frozen paper experiments without mixing them into the main product repository.
+This repository is the manuscript-specific paper artifact repository for DeepFirm Quant. It is organized for reviewers, collaborators, and future readers who need to inspect or rerun the frozen paper experiments without mixing them into the main product repository.
 
 ## What Is Included
 
@@ -30,7 +30,7 @@ Main paper configuration:
 - `artifacts/crisis_warning/global_h1/`
 - `artifacts/crisis_warning/global_h5/`
 
-Optional zero-security-overlap supplement:
+Zero-security-overlap transfer check:
 
 - `experiments/zero_overlap_supplement_config.yaml`
 - `experiments/portfolios/zero_overlap_supplement_portfolios.yaml`
@@ -178,7 +178,7 @@ Before creating the public GitHub repository or release archive:
 4. Regenerate `paper/result_hash_manifest.md`.
 5. Create the GitHub repository, push the cleaned tree, and record the final commit SHA.
 6. If needed, create a Zenodo/Code Ocean/institutional archive DOI.
-7. Replace repository URL, Git SHA, and DOI TODO placeholders in the paper package after those values exist.
+7. Confirm the repository URL, release tag, commit SHA, and archival-DOI status in the paper package.
 
 See `RELEASE_CHECKLIST.md` for the full pre-publication checklist.
 
