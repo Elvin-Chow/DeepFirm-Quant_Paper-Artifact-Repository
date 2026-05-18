@@ -1,6 +1,6 @@
 # Result Hash Manifest
 
-Generated: 2026-05-18T23:25:56+08:00
+Generated: 2026-05-18T23:30:17+08:00
 
 Scope: key paper result CSV, JSON, PNG, Markdown table, release documentation, dependency/lockfile, experiment-config, CI, and LaTeX artifacts. Hashes are SHA-256 over file bytes.
 
@@ -117,4 +117,4 @@ Release tag: `v0.1-submission`
 | `paper/zero_overlap_supplement/table_threshold_sensitivity.md` | 5736 | `6bf5dd6fa07e80e316943ebacbe4670df9af4f1d7a56ed3ada26dcb48dc0521c` |
 | `paper/zero_overlap_supplement_plan.md` | 5296 | `c3276cb528dba36a8ca3f77377cabe1ed828890804dd19a0b3436395bf848563` |
 | `requirements-dev.txt` | 14 | `bf4dc0555928a3facf67b3370001388d4b65e69a071c339f8b201310bde4486a` |
-| `requirements.txt` | 292 | `5e5742de08ce149e07b0bebd7fc464253fd6d222be06643830718a8cdfd322ca` |
+| `requirements.txt` | 306 | `6f64f604110826d8ebca91cbdc750be8629bfae23dcfd153b37c595441975f21` |
