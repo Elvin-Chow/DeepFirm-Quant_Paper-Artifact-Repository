@@ -1,0 +1,14 @@
+*.csv text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.png binary
+*.pdf binary
+*.zip binary
+*.parquet binary
+*.sqlite binary
+*.db binary

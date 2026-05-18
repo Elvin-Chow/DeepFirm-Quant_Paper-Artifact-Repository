@@ -1,0 +1,77 @@
+{
+  "artifact_root": "/Users/zhouhongyi/Documents/VS_Code/DeepFirm-Quant-Paper-2026/artifacts/crisis_warning",
+  "horizons": {
+    "h1": {
+      "artifact_hash": "b807acefbc0c5774844331b7514791fd892f33a59846250728a64ca55506d6cd",
+      "artifact_hash_files": [
+        {
+          "path": "xgb_crisis_model.json",
+          "sha256": "1d79b25ac9afe9a3eb1cc76356abd1810462db5c7dad75f73e5bee70150d9506",
+          "status": "present"
+        },
+        {
+          "path": "calibration.json",
+          "sha256": "390629a049ba671de95737fd31f2d98e2e02e0e448f8ec02605bcac9c12edf73",
+          "status": "present"
+        },
+        {
+          "path": "feature_schema.json",
+          "sha256": "47b23430fb89b4626436b0e9dd3f14017183473c4af2450b25601fd935512ece",
+          "status": "present"
+        },
+        {
+          "path": "shap_background_sample.csv",
+          "sha256": "42f09219f1fdc8ae8b4b5d95e5998230cf9057d3759d9e5295bd2cee45daa397",
+          "status": "present"
+        }
+      ],
+      "artifact_hash_matches_metadata": true,
+      "directory": "/Users/zhouhongyi/Documents/VS_Code/DeepFirm-Quant-Paper-2026/artifacts/crisis_warning/global_h1",
+      "exists": true,
+      "feature_schema_hash": "47b23430fb89b4626436b0e9dd3f14017183473c4af2450b25601fd935512ece",
+      "metadata_artifact_hash": "b807acefbc0c5774844331b7514791fd892f33a59846250728a64ca55506d6cd",
+      "metadata_model_version": "crisis-warning-xgb-h1-2026-05-17",
+      "metadata_validation_status": "degraded_validation"
+    },
+    "h5": {
+      "artifact_hash": "625482ed714b903cd94ebdfd47fc8d9b0b0e7e5282ccc6a3b9af290b537053d0",
+      "artifact_hash_files": [
+        {
+          "path": "xgb_crisis_model.json",
+          "sha256": "4cdad7566a650ee7fcf36d20e13143c2aa6e32959652b2d6c78a285c4d787705",
+          "status": "present"
+        },
+        {
+          "path": "calibration.json",
+          "sha256": "54370ff8f40552df7cdaeeaad327f0c2f7767f99ca32cade8490b2c7e70af791",
+          "status": "present"
+        },
+        {
+          "path": "feature_schema.json",
+          "sha256": "cc27ed4e44fbd4658e39591391e8a339a1d968fb35a94eb46417d2ee687260e9",
+          "status": "present"
+        },
+        {
+          "path": "shap_background_sample.csv",
+          "sha256": "812de6bfa42a818f8fd73bfc50fc7e7b36ed9dd4f118124229ac0333f05768c1",
+          "status": "present"
+        }
+      ],
+      "artifact_hash_matches_metadata": true,
+      "directory": "/Users/zhouhongyi/Documents/VS_Code/DeepFirm-Quant-Paper-2026/artifacts/crisis_warning/global_h5",
+      "exists": true,
+      "feature_schema_hash": "cc27ed4e44fbd4658e39591391e8a339a1d968fb35a94eb46417d2ee687260e9",
+      "metadata_artifact_hash": "625482ed714b903cd94ebdfd47fc8d9b0b0e7e5282ccc6a3b9af290b537053d0",
+      "metadata_model_version": "crisis-warning-xgb-h5-2026-05-17",
+      "metadata_validation_status": "degraded_validation"
+    }
+  },
+  "run": {
+    "allow_sandbox_data": false,
+    "end_date": "2026-05-15",
+    "portfolio_count": 10,
+    "prediction_rows": 36114,
+    "skipped_rows": 0,
+    "start_date": "2018-01-01"
+  }
+}

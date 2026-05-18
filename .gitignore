@@ -1,0 +1,96 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+/lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+.venv311/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+.playwright-cli/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+backend.log
+frontend.log
+
+# Local data & caches
+cache/
+data/
+*.parquet
+*.pkl
+*.joblib
+*.db
+*.sqlite
+*.sqlite3
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+experiments/.mplconfig/
+
+# LaTeX build intermediates
+*.aux
+*.blg
+*.fls
+*.fdb_latexmk
+*.out
+*.synctex.gz
+paper/latex/ACCESS_latex_template_20240429/
+
+# Crisis warning retrain artifacts
+artifacts/crisis_warning/_backup_*/
+artifacts/crisis_warning/_retrain_staging_*/
+
+# Secrets
+.env
+.env.*
+
+# Dev / internal docs (not for public repo)
+AGENTS.md
+PROPOSAL.md
+TESTING.md
+UPDATE.md
+CLAUDE.md
+rosy-sprouting-engelbart.md
+
+# Dev scripts
+verify_sprint*.py
+start_dev.sh
+
+# Node.js / Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# Plans
+plans/

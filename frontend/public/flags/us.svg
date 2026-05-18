@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 60" role="img" aria-label="United States flag">
+  <defs>
+    <path id="star" d="M0 -0.72l0.17 0.5h0.53l-0.43 0.31 0.17 0.5L0 0.28l-0.44 0.31 0.17-0.5-0.43-0.31h0.53z"/>
+  </defs>
+  <rect width="90" height="60" fill="#fff"/>
+  <g fill="#b31942">
+    <rect width="90" height="4.615"/>
+    <rect y="9.231" width="90" height="4.615"/>
+    <rect y="18.462" width="90" height="4.615"/>
+    <rect y="27.692" width="90" height="4.615"/>
+    <rect y="36.923" width="90" height="4.615"/>
+    <rect y="46.154" width="90" height="4.615"/>
+    <rect y="55.385" width="90" height="4.615"/>
+  </g>
+  <rect width="36" height="32.308" fill="#0a3161"/>
+  <g fill="#fff">
+    <use href="#star" x="3.2" y="3"/>
+    <use href="#star" x="9.12" y="3"/>
+    <use href="#star" x="15.04" y="3"/>
+    <use href="#star" x="20.96" y="3"/>
+    <use href="#star" x="26.88" y="3"/>
+    <use href="#star" x="32.8" y="3"/>
+    <use href="#star" x="6.16" y="6.3"/>
+    <use href="#star" x="12.08" y="6.3"/>
+    <use href="#star" x="18" y="6.3"/>
+    <use href="#star" x="23.92" y="6.3"/>
+    <use href="#star" x="29.84" y="6.3"/>
+    <use href="#star" x="3.2" y="9.6"/>
+    <use href="#star" x="9.12" y="9.6"/>
+    <use href="#star" x="15.04" y="9.6"/>
+    <use href="#star" x="20.96" y="9.6"/>
+    <use href="#star" x="26.88" y="9.6"/>
+    <use href="#star" x="32.8" y="9.6"/>
+    <use href="#star" x="6.16" y="12.9"/>
+    <use href="#star" x="12.08" y="12.9"/>
+    <use href="#star" x="18" y="12.9"/>
+    <use href="#star" x="23.92" y="12.9"/>
+    <use href="#star" x="29.84" y="12.9"/>
+    <use href="#star" x="3.2" y="16.2"/>
+    <use href="#star" x="9.12" y="16.2"/>
+    <use href="#star" x="15.04" y="16.2"/>
+    <use href="#star" x="20.96" y="16.2"/>
+    <use href="#star" x="26.88" y="16.2"/>
+    <use href="#star" x="32.8" y="16.2"/>
+    <use href="#star" x="6.16" y="19.5"/>
+    <use href="#star" x="12.08" y="19.5"/>
+    <use href="#star" x="18" y="19.5"/>
+    <use href="#star" x="23.92" y="19.5"/>
+    <use href="#star" x="29.84" y="19.5"/>
+    <use href="#star" x="3.2" y="22.8"/>
+    <use href="#star" x="9.12" y="22.8"/>
+    <use href="#star" x="15.04" y="22.8"/>
+    <use href="#star" x="20.96" y="22.8"/>
+    <use href="#star" x="26.88" y="22.8"/>
+    <use href="#star" x="32.8" y="22.8"/>
+    <use href="#star" x="6.16" y="26.1"/>
+    <use href="#star" x="12.08" y="26.1"/>
+    <use href="#star" x="18" y="26.1"/>
+    <use href="#star" x="23.92" y="26.1"/>
+    <use href="#star" x="29.84" y="26.1"/>
+    <use href="#star" x="3.2" y="29.4"/>
+    <use href="#star" x="9.12" y="29.4"/>
+    <use href="#star" x="15.04" y="29.4"/>
+    <use href="#star" x="20.96" y="29.4"/>
+    <use href="#star" x="26.88" y="29.4"/>
+    <use href="#star" x="32.8" y="29.4"/>
+  </g>
+</svg>

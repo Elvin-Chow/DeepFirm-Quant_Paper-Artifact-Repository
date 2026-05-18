@@ -1,0 +1,297 @@
+# Changelog
+
+All notable changes to the DeepFirm Quant project are documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+## [Unreleased]
+
+## [V5.0.0] - 2026-05-18
+
+### Backend
+- Added request IDs, centralized API error responses, payload-size protection, per-client request throttling, and concurrency guards so overloaded or malformed analytics requests degrade with traceable `request_id` metadata instead of raw server errors.
+- Hardened hosted CORS behavior by requiring explicit `ALLOW_ORIGINS` configuration in hosted environments while preserving local development origins.
+- Added unified `DataQuality` provenance across market snapshots, unified analysis, risk reports, and analytics modules, including provider chain, cache status, exchange calendar, coverage ratio, as-of date, stale/partial flags, and deduplicated warnings.
+- Strengthened market-data caching with explicit stale-cache, partial-cache, stale-partial-cache, cache-bypass, cache-disabled, and live-refresh status handling.
+- Prevented future-data leakage by replacing unbounded backfill with bounded forward-fill rules in calendar alignment, benchmark/risk-free series alignment, and OOS policy inputs, with coverage warnings surfaced to API consumers.
+- Added OOS allocation policy leakage guards, policy as-of metadata, and new integrity coverage for train/test decision workflows.
+- Disabled Hong Kong factor attribution until HK-local factors are configured, matching the explicit unavailable policy already used for China A-share, Japan, and Taiwan markets.
+- Strengthened crisis-warning artifacts with SHA-256 artifact and feature-schema hashes, global market coverage metadata, validation status, per-market requirements, expanded global training portfolios, and stricter validation quality gates.
+- Added crisis-warning artifact contract validation, future-fill policy coverage, OOS allocation integrity coverage, and updated CI/Docker hygiene for Python 3.11 validation environments and temporary artifact directories.
+- Updated FastAPI metadata to version `5.0.0`.
+
+### Frontend
+- Added first-class data-quality rendering for provider chain, cache status, calendar, coverage, as-of date, and warnings across compact and expanded data-source displays.
+- Reworked the Crisis Warning page audit surface with global market scope, required/covered/skipped markets, artifact hash, feature-schema hash, validation status, degraded-warning copy, and localized diagnostics.
+- Hid Alpha attribution for Hong Kong, China A-share, Japan, and Taiwan market modes, with localized Hong Kong unavailable messaging and clearer non-US factor-proxy copy.
+- Reset portfolios, weights, constraints, forecast settings, OOS settings, and views to market-specific defaults when switching markets, preventing stale presets from leaking across regions.
+- Removed API keys from saved browser presets and added preset sanitization so local storage only keeps portfolio and model configuration.
+- Refined mobile and tablet layouts across the header, market rail, bottom navigation, sidebar, metric cards, correlation heatmap, report actions, and dashboard cards for safer touch-width rendering.
+- Improved the Welcome market dashboard with clearer provider display, ETF proxy labels for Japanese index proxies, shorter data-delay notices, stronger breadth contrast, and mobile-safe market status rows.
+- Upgraded the frontend toolchain to Next.js `16.2.6`, pinned PostCSS to `8.5.10`, and switched production builds to the explicit webpack path.
+- Updated frontend release notes and package metadata to version `5.0.0`.
+
+## [V4.1.0] - 2026-05-16
+
+### Backend
+- Added standalone Japan market mode with `.T` ticker validation, JPX calendar alignment, Yahoo Finance data access, Nikkei 225 OOS benchmark support, and a JPY RFR / TONA risk-free proxy.
+- Added standalone Taiwan market mode with `.TW` and `.TWO` ticker validation, XTAI calendar alignment, Yahoo Finance data access, TAIEX OOS benchmark support, and a Central Bank of the Republic of China discount-rate risk-free proxy.
+- Added Japan and Taiwan methodology output, benchmark provenance, local-currency handling, and alpha-attribution guardrails with explicit unavailable status.
+- Removed Mixed Market from backend API contracts, market snapshots, documentation, and crisis-warning training arguments while keeping standalone US, HK, China A-share, Japan, and Taiwan workflows supported.
+- Calibrated ML risk scores against portfolio-specific historical tail loss while preserving the absolute 6% floor.
+- Updated FastAPI metadata to version `4.1.0`.
+
+### Frontend
+- Added Japan and Taiwan market navigation, default portfolios, local JPY / TWD currency display, ticker validation copy, and localized Alpha unavailable messaging.
+- Extended the Welcome market snapshot dashboard to Japan and Taiwan, tracking Nikkei 225, TOPIX, JPX-Nikkei 400, TAIEX, FTSE TWSE Taiwan 50, and TWSE Electronics Index.
+- Added Japan and Taiwan report methodology notes so exported risk reports show benchmark, calendar, currency, and factor-attribution limitations clearly.
+- Removed Mixed Market from the frontend market selector and narrowed the Taiwan default portfolio to `2330.TW`, `2317.TW`, and `2454.TW`.
+- Updated frontend release notes and package metadata to version `4.1.0`.
+
+## [V4.0.0] - 2026-05-15
+
+### Backend
+- Added intraday trend points to market snapshot index responses, backed by Yahoo Finance chart data with bounded timeouts, host fallback, duplicate timestamp filtering, and provider warnings.
+- Added non-blocking US risk comparison series to risk evaluation and unified analysis, including S&P 500 cumulative returns, risk-free proxy returns, performance dates, source details, and data warnings.
+- Expanded typed API contracts for market snapshot trend data and risk benchmark/risk-free provenance so the frontend can render comparison charts without ad hoc payload handling.
+- Updated FastAPI metadata to version `4.0.0`.
+
+### Frontend
+- Rebuilt the app shell with a compact sticky header, backend health heartbeat, market selector, mobile-safe tab navigation, and per-market snapshot refresh persistence.
+- Redesigned the Welcome page into a live market command dashboard with intraday index cards, breadth summary, data provenance, market status, backend status, and collapsible V4.0.0 release notes.
+- Reworked the Risk page around portfolio, benchmark, and risk-free return comparison, including range controls, endpoint labels, a mini navigator, compact metrics, risk-state panels, and a denser correlation heatmap.
+- Refined the Decision, Machine Learning, Crisis Warning, and Report pages with tighter alignment, clearer chart hierarchy, evidence legends, cleaner report colors, and more scan-friendly metric cards.
+- Added a major UI refresh across the frontend, with a cleaner graphite, blue, and teal look, tighter chart layouts, and dashboard screens that are easier to scan.
+- Updated frontend release notes and package metadata to version `4.0.0`.
+
+## [V3.6.0] - 2026-05-13
+
+### Backend
+- Added `GET /api/v1/market/snapshot` for US, HK, CN, and mixed-market landing-page snapshots, including market-session state, primary index levels, changes, timestamps, and source metadata.
+- Hardened HK index snapshot handling so Hang Seng TECH can recover change and percentage-change values from Yahoo chart metadata when the provider returns only a single close row.
+- Added `POST /api/v1/risk/report` for structured portfolio risk reports that combine traditional risk, ML forecast, anomaly, regime, crisis warning, Decision/OOS summary, methodology notes, data warnings, and disclaimers.
+- Updated FastAPI metadata to version `3.6.0`.
+
+### Frontend
+- Reworked the Welcome page into a compact market overview with the welcome banner restored, live market status, a short daily market brief, and denser primary-index instrument cards.
+- Kept the full changelog available through collapsible version groups so historical release notes remain accessible without dominating the landing page.
+- Added a Report tab that generates, refreshes, and prints structured risk reports directly from the current portfolio inputs.
+- Updated frontend release notes and package metadata to version `3.6.0`.
+
+## [V3.5.1] - 2026-05-12
+
+### Backend
+- Strengthened crisis warning diagnostics so compressed isotonic calibration buckets, base-rate-like calibrated probabilities, weak ROC/PR validation metrics, and elevated calibration error degrade model health and surface clear warning messages.
+- Preserved the existing crisis warning probability contract, target definition, and offline artifacts while making low-information 5D readings easier to audit.
+- Updated FastAPI metadata to version `3.5.1`.
+
+### Frontend
+- Refined the Crisis Warning interpretation and model-audit layout so paired panels align cleanly while the interpretation panel shows probability, training base rate, calibration state, model health, and validation metrics.
+- Added localized English, Simplified Chinese, and Traditional Chinese copy for the new crisis warning calibration and validation diagnostics.
+- Updated frontend release notes and package metadata to version `3.5.1`.
+
+## [V3.5.0] - 2026-05-11
+
+### Backend
+- Added an independent explainable crisis warning module with offline XGBoost artifacts, SHAP/native contribution explanations, horizon-specific artifact loading, and `POST /api/v1/risk/crisis-warning`.
+- Added optional `crisis_warning` output to `/api/v1/analysis/run`; unavailable artifacts or crisis inference failures now degrade to `null` without blocking risk, alpha, ML, regime, anomaly, or optimization results.
+- Added offline crisis model training through `scripts/train_crisis_warning_model.py`, including no-leakage tail labels, validation metadata, optional isotonic calibration, and SHAP background sample export.
+- Expanded crisis warning training with a diversified global-domain preset covering US growth, US cross-asset, US defensive/value, HK large-cap, and CN large-cap portfolio samples.
+- Corrected price-cache coverage checks and provider metadata normalization so OOS benchmark series are not silently shortened by stale symbol-level cache files.
+- Added standalone `cn` market mode for pure A-share portfolios, including risk, ML forecast, anomaly, regime, optimization, and CSI 300 OOS benchmark support.
+- Hardened A-share data access with AKShare provenance, Yahoo chart fallback, provider cooldown, and bounded CSI 300 benchmark timeout handling.
+- Added CN-only A-share price quality notices for short samples, duplicate dates, low requested-window coverage, and long unchanged close-price runs.
+- Exposed benchmark and risk-free rate source details in optimization responses for clearer CSI 300 and fallback methodology reporting.
+- Kept China factor attribution unavailable by policy and degraded China market-cap priors to inverse-volatility equilibrium with methodology warnings.
+
+### Frontend
+- Added a standalone Crisis Warning navigation page showing tail-event probability, warning level, model health, calibration state, validation metrics, and training-window metadata.
+- Added detailed plain-language crisis explanations, SHAP risk-driver/reducer panels, a contribution chart, and risk-model limitation copy for clearer interpretation.
+- Added unavailable, loading, and empty states for the crisis warning page so missing artifacts or degraded explanations do not confuse the main workflow.
+- Added CN market navigation, defaults, validation, and Alpha unavailable messaging for China A-share workflows.
+- Hid the Alpha / excess-return module in CN market mode while preserving the backend unavailable policy as an API guardrail.
+- Added localized data-source display for benchmark and risk-free rate provenance in Decision results.
+- CN and HK markets now display local currency symbols (`¥`, `HK$`) for capital input and absolute loss metrics.
+- Updated frontend release notes and package metadata to version `3.5.0`.
+
+## [V3.0.0] - 2026-05-09
+
+### Added
+- **Methodology metadata:** optimization responses now expose `benchmark_symbol`, `benchmark_name`, `risk_free_rate_source`, and `methodology_warnings`.
+- **CI workflow:** added backend unit tests, TypeScript checks, and frontend build checks through GitHub Actions.
+- **Docker context controls:** added `.dockerignore` to exclude local caches, virtual environments, frontend build output, and runtime data files.
+- **Risk anomaly detection:** added a lightweight Isolation Forest anomaly detector for portfolio market states, exposed through `POST /api/v1/risk/anomaly`.
+- **Anomaly feature engineering:** added daily return, absolute return, 5-day and 20-day volatility, 20-day drawdown, rolling correlation, missing-data ratio, and price-jump features for current-state anomaly scoring.
+- **Risk Anomaly Alert card:** added a Risk tab alert panel showing anomaly score, localized alert level, detection status, and main reason explanations.
+- **Market regime detection:** added `POST /api/v1/risk/regime` and a Machine Learning tab panel for classifying the current portfolio regime as Normal, High Volatility, or Crisis with probabilities, risk multipliers, and recommended stress level.
+- **Regime feature engineering:** added portfolio return, rolling volatility, drawdown, correlation, and downside-volatility features for market-state clustering without changing the existing ES, Monte Carlo, OOS, or optimization workflows.
+- **ML risk forecast module:** added a Machine Learning tab module showing predicted VaR, predicted ES, risk score, risk level, model diagnostics, top risk drivers, and traditional ES comparison.
+- **Adaptive allocation policy:** added a smart allocation control layer that tunes maximum weight, minimum weight, turnover penalty, and concentration penalty from risk metrics, ML downside forecasts, anomaly alerts, and market-regime signals.
+- **Smart and Professional allocation modes:** added `allocation_mode` to the optimization request so users can choose automatic parameter tuning or keep full manual control of optimizer constraints.
+
+### Changed
+- **Backend service boundary:** moved schema definitions and analysis orchestration out of `backend/main.py` into dedicated schema and service modules while preserving the existing FastAPI routes.
+- **API contract hardening:** request models now reject duplicate tickers, invalid custom weights, and Black-Litterman views that reference assets outside the submitted ticker universe.
+- **Dependency reproducibility:** pinned backend dependency versions in `requirements.txt`.
+- **Benchmark documentation:** normalized mixed-market benchmark wording to `ACWI` across project documentation and UI changelog.
+- **Analysis speed:** unified analysis now reuses one aligned price matrix across risk, alpha, ML, anomaly, regime, and optimization stages, with independent analysis modules running in parallel where safe.
+- **Smart allocation reuse:** adaptive allocation now consumes precomputed ML, regime, and anomaly signals from the unified run instead of recalculating them inside the optimizer.
+- **Market data resilience:** Yahoo Finance HTTP 429 responses now trigger a process-wide cooldown, and complete local price caches are labeled as cache rather than stale fallback.
+- **Factor data policy:** Kenneth French factor data now uses persistent real-data caching, truncates attribution to real factor coverage when releases lag, and reports Alpha as unavailable instead of generating synthetic factor regressions when real coverage is insufficient.
+- **Data status UX:** price-data notices are localized and folded behind a compact details control to reduce visual noise.
+- **Multilingual anomaly explanations:** anomaly reasons now render as richer English, Simplified Chinese, and Traditional Chinese explanations in the frontend instead of terse raw reason labels.
+- **Alert-level localization:** Low, Medium, High, and Extreme alert levels now follow the active frontend language.
+- **Risk enhancement request handling:** anomaly and regime detection now degrade independently in the frontend so optional enhancement failures do not block the core risk, alpha, and optimization results.
+- **Decision guardrails:** portfolio recommendations now apply OOS-aware decision policies, blending raw Black-Litterman outputs with prior allocations when validation metrics indicate benchmark underperformance.
+- **Decision allocation controls:** optimization recommendations now expose effective minimum weight, turnover, and recommended weights so the frontend can distinguish raw optimizer output from execution-ready allocation advice.
+- **Decision explainability:** the Decision tab now surfaces policy labels, OOS underperformance warnings, raw-vs-recommended weight shifts, and per-asset action reasons for clearer rebalancing review.
+- **Allocation control UX:** the sidebar now consolidates the four optimizer controls behind a Smart / Professional mode switch, and the Decision tab shows the effective allocation policy with parameter values and reasons.
+
+### Fixed
+- **Log-return performance math:** cumulative returns, annualized return, max drawdown, OOS curves, and scoring inputs now compound log returns through `exp(cumsum(log_returns)) - 1` instead of treating log returns as simple returns.
+- **Risk-free rate provenance:** OOS optimization now reports whether the risk-free rate came from the request, `^IRX`, or the deterministic fallback.
+
+## [2.2.0] - 2026-05-02
+
+### Changed
+- **Monte Carlo memory profile:** risk evaluation now projects multi-asset return moments into the portfolio return distribution before simulation. Monte Carlo ES still honors the requested path count, while visualization paths are capped at 100 samples to avoid allocating `mc_paths × days × assets` arrays on long backtests.
+- **Risk input hardening:** portfolio risk calculations now reject empty or non-finite return samples and fall back to equal weights when submitted weights are non-finite or sum to zero.
+- **Alpha factor provenance:** Fama-French attribution responses now separate price data source from factor data source and explicitly flag synthetic factor fallback.
+- **Runtime cache semantics:** SmartFetcher caches are now documented as optional runtime market-data caches, separate from portfolio/session persistence, and can be disabled with `DFQ_DISABLE_CACHE=1`.
+- **Decision scoring visualization:** the Decision tab now renders the existing six-dimension model score as a Recharts radar chart alongside OOS performance.
+
+### Fixed
+- **Short-window OOS validation:** chronological train/test splitting now requires at least two complete finite training observations and one test observation before optimization.
+- **Optimization covariance validation:** Black-Litterman inputs now use finite prior-return vectors and PSD covariance matrices instead of raw train-sample covariance output.
+- **Read-only cache startup:** SmartFetcher now degrades gracefully when local cache directories or parquet writes are unavailable.
+- **Zero-weight allocation guard:** frontend analysis now blocks all-zero custom weights, while backend risk and optimization paths safely avoid zero-sum normalization for direct API requests.
+- **Market/ticker mismatch validation:** front-end analysis now blocks `.HK` tickers in US-only mode and non-`.HK` tickers in HK-only mode before any API request is sent.
+- **API-level market contract enforcement:** FastAPI request models now reject the same market/ticker mismatches with Pydantic validation, preventing direct API calls from bypassing the front-end guard.
+- **Local development CORS:** backend defaults now allow both `http://localhost:3000` and `http://127.0.0.1:3000`, preventing browser-side `Failed to fetch` errors when opening the local app by IP literal.
+
+## [2.1.0] - 2026-04-19
+
+### Added
+- **Cozy Glassmorphism UI redesign**: migrated the entire frontend to a warm, premium glassmorphism design system inspired by boardgame_cafe aesthetics. Features include frosted-glass cards (`backdrop-blur-xl`), gradient text headings, hover-lift animations, and click-press micro-interactions.
+- **Full light/dark dual theme**: introduced CSS custom properties (`:root` / `html.dark`) for instant theme switching without page reload. Includes manual light/dark/auto toggle with time-based auto-switching (18:00–06:00 defaults to dark).
+- **Welcome tab with changelog**: added a dedicated "Welcome" tab as the default landing view, displaying a brand hero card and versioned changelog (Added / Changed / Fixed badges) so first-time users no longer see a blank canvas.
+- **Portfolio weight number inputs**: weights section now provides parallel numeric input fields alongside range sliders for precise value entry.
+- **Shared UI component library**: extracted reusable primitives — `GlassCard`, `GradientButton`, `MetricCard`, `SectionHeader`, `Loading`, `EmptyState`, and `ThemedTooltip` — eliminating duplicated chart/metric code across Risk, Alpha, and Decision tabs.
+- **Theme-aware Recharts theming**: all charts (Area, Bar, Pie, Line) now read resolved theme from context and adapt grid colors, tooltip backgrounds, and accent fills dynamically.
+
+### Changed
+- **Sidebar width expanded** from `320px` to `352px` (`w-[22rem]`) for improved control readability.
+- **Backtest default enabled**: out-of-sample backtest checkbox now defaults to `true` on fresh page loads.
+- **Control styling softened**: input borders and backgrounds reduced to subtle `rgba` tints (light: `rgba(0,0,0,0.03)` / dark: `rgba(255,255,255,0.04)`) for a gentler visual presence.
+- **Tab bar redesigned**: pill-style buttons with Lucide icons (`Sparkles`, `Shield`, `TrendingUp`, `Scale`) and gradient active states.
+- **Accordion sidebar sections**: sidebar controls grouped into collapsible accordion panels with Lucide icons per category (Portfolio, Model Config, Black-Litterman View, Backtest).
+
+### Fixed
+- **Eliminated hydration mismatch**: `useTheme`, `useLanguage`, and `usePresets` hooks now use fixed initial states and read `localStorage` only inside `useEffect`, removing the Next.js hydration overlay.
+- **Removed dead code**: cleaned up unused `dismissedError` state, unused `Languages` / `BarChart3` imports in `Sidebar.tsx`, and redundant `import React` statements across UI components leveraging the React 18 JSX transform.
+
+## [2.0.0]
+
+### Added
+- **Next.js 14 frontend:** completely new React 18 + TypeScript + Tailwind CSS dashboard replacing the legacy Streamlit monolith. All UI state lives in React memory; the backend remains strictly stateless.
+- **FastAPI stateless backend:** removed SQLite persistence layer (`backend/database.py`, `backend/crud.py`, `data/portfolios.db`) and all session-scoped storage. The backend now exposes three pure computation endpoints (`/api/v1/risk/evaluate`, `/api/v1/alpha/fama-french`, `/api/v1/portfolio/optimize`) with no side effects between requests.
+- **Recharts data visualization:** migrated all charts (Area, Bar, Pie, Line) from ECharts to Recharts for tighter React integration and reduced bundle size. Includes cumulative return area charts, factor attribution bar charts, prior/posterior donut charts, and OOS backtest line charts.
+- **Browser-side portfolio presets:** users can save and load entire parameter configurations (tickers, weights, market, capital, leverage, Monte Carlo paths, Black-Litterman views, Tiingo key, etc.) via `localStorage`. No portfolio data is transmitted to or stored on the server.
+- **CORS middleware:** configured `CORSMiddleware` in FastAPI to allow cross-origin requests from `http://localhost:3000` during local development.
+
+### Changed
+- **Uvicorn launch environment:** backend now explicitly runs under the project's `.venv` Python interpreter (`yfinance` 1.2.2) to avoid environment skew that caused batch download behavior differences under the system Anaconda distribution.
+- **`fetcher.last_source` initialization:** `fetch_equity_batch` no longer inherits the initial `"unknown"` value when determining `batch_best_source`. This prevents stale source labels from leaking into API responses after a successful yfinance batch download.
+- **Frontend build tooling:** replaced `streamlit` and `streamlit-echarts` with `next`, `react`, `react-dom`, `recharts`, `tailwindcss`, `typescript`, and `autoprefixer` in `frontend/package.json`.
+
+### Fixed
+- **Data source displaying "unknown":** resolved an issue where `RiskEvaluationResult.source`, `FactorRegressionResult.source`, and `OptimizationResult.source` all returned `"unknown"` on fresh cache misses. The root cause was a combination of backend process running against the wrong Python environment and `batch_best_source` being initialized from `self.last_source` before any fetch attempt.
+- **Missing Tiingo API key input:** restored a password input field in the configuration sidebar. The key is now forwarded through all three API request payloads (`api_key`) so Tiingo failover works consistently across risk, alpha, and optimization pipelines.
+- **Tooltip formatter TypeScript errors:** relaxed `formatter` prop types in Recharts `<Tooltip>` components from strict `number`/`string` signatures to `any` to accommodate the library's internal `ValueType | undefined` union without disabling compiler checks globally.
+
+## [1.1.0] - 2026-04-18
+
+### Added
+- Unified app version bumped to `1.1.0` across FastAPI (`backend/main.py`) and reflected in system metadata.
+- Batch-best-source tracking in `fetch_equity_batch` to prevent sandbox fallback from overwriting a successful yfinance source.
+
+### Changed
+- **Tiingo failover rewritten from scratch:** removed brittle `pandas_datareader` dependency and replaced with a lightweight `requests`-based REST client (`_fetch_tiingo`). This fixes Python 3.14+ `distutils`/`LooseVersion` incompatibilities and makes Tiingo failover reliable out of the box.
+- Frontend **Run Analysis** button no longer blocks execution when the Tiingo API key is empty. The key is only required for Tiingo failover; Yahoo Finance batch download works without it.
+- Removed dead `color` variable assignments in frontend source captions (three occurrences in Risk, Alpha, and Decision tabs).
+
+### Fixed
+- **Missing `source` in risk evaluation:** `RiskEngine.evaluate()` now correctly forwards `fetcher.last_source` into `RiskEvaluationResult.source`, so the Risk tab displays the actual data provider instead of "unknown".
+- **Missing `api_key` in standalone fetch endpoints:** `/fetch/us_equity` and `/fetch/hk_equity` now pass the payload `api_key` to `SmartFetcher`, enabling Tiingo failover on those routes as well.
+- **HK benchmark label desync:** market selection is now persisted immediately after selection and restored on portfolio load, ensuring the OOS backtest chart labels the correct benchmark (SPY / ^HSI / ACWI).
+- **Yahoo Finance batch download source override:** if batch download partially succeeds and some tickers fall back to synthetic sandbox data, `last_source` is restored to `yfinance` rather than incorrectly reporting `sandbox`.
+
+## [1.0.0] - 2026-04-18
+
+### Added
+- Multi-market equity support: Hong Kong stocks (`.HK` suffix) with dedicated HKEX calendar alignment.
+- Market selector in sidebar supporting `us`, `hk`, and `mixed` modes with ticker suffix validation.
+- Fixed FX normalization (`HKD/USD = 1/7.8`) for mixed-mode portfolios so HKD-denominated prices are converted to USD before return calculation.
+- Dynamic benchmark adaptation: `SPY` for US, `^HSI` for HK, and `ACWI` for mixed markets in OOS backtests.
+- HK ticker normalization (`_normalize_yf_symbol`) to strip leading zeros before `.HK` suffix for Yahoo Finance compatibility.
+- Per-instance rate limiting in Yahoo Finance fetcher (`_fetch_yf`) enforcing a minimum 2-second interval between calls to mitigate HTTP 429 errors.
+- Market-calendar-aware time-series aligner using official exchange calendars (`NYSE`, `HKEX`, `SSE`) via `pandas_market_calendars`.
+- Out-of-sample (OOS) backtest module with chronological train/test split and cumulative return visualization.
+- Equal-weight benchmark overlay for OOS performance comparison.
+- Risk-adjusted OOS metrics: Sharpe Ratio, Max Drawdown, and Information Ratio.
+- Comprehensive model scoring system (0–100) across six dimensions: Profitability, Risk Control, Alpha Capability, Stability, Win Rate, and Consistency.
+- Letter-grade rating mapping (S/A/B/C/D) derived from a weighted composite (Risk Control 40%, Return Stability 60%).
+- Interactive ECharts radar chart for visualizing multi-dimensional strategy performance.
+- Persistent SQLite schema fields `backtest_enabled` and `test_ratio` for portfolio configurations.
+
+### Changed
+- Cross-market alignment now handles holiday gaps via forward-fill and backward-fill to prevent empty intersection errors.
+- Chart legends repositioned to vertical right-aligned layout with semi-transparent background to avoid axis overlap.
+- OOS backtest chart and metric cards moved into the Risk tab to preserve tab stability.
+
+### Fixed
+- Resolved Streamlit widget state modification error on portfolio load by introducing a deferred `_pending_load_state` application pattern with `st.rerun()`.
+- Patched invalid asset filtering in Black-Litterman view matrices to prevent `KeyError` when tickers are missing from the view specification.
+- Added automatic SQLite schema migration (`ALTER TABLE`) for legacy portfolios missing `backtest_enabled` and `test_ratio` columns.
+- Fixed `result.source` display in `/api/v1/portfolio/optimize` so it reflects the portfolio data source rather than the subsequent benchmark fetch source.
+- Replaced `.loc` with `.reindex(...).fillna(0.0)` for benchmark alignment to prevent `KeyError` when test dates are missing from the benchmark series.
+- Fixed BL view input desync by switching ticker text inputs to `st.selectbox` bound to the current portfolio ticker list.
+
+## [0.8.0]
+
+### Added
+- Fama-French three-factor alpha attribution engine (`models/factor_analysis.py`) with regression significance testing.
+- Alpha tab featuring factor bar charts, metric tables with p-values, and automated style attribution (high/low beta, small/large cap, value/growth).
+- Cumulative return performance curve rendered with gradient area styling in the Risk tab.
+- Bidirectional weight controls combining number inputs and sliders with real-time synchronization.
+- SQLite-backed portfolio persistence layer with CRUD operations for saving and loading configurations.
+- Absolute loss calculation: `capital × leverage × ES` displayed alongside percentage metrics.
+
+### Changed
+- Dashboard layout switched to wide mode with dark-themed custom CSS for improved readability.
+- Lazy caching mechanism implemented via `session_state` so tab switching does not re-trigger API calls.
+
+## [0.5.0]
+
+### Added
+- Tiingo API integration as a secondary data source with automatic failover when Yahoo Finance requests are blocked.
+- `SmartFetcher` routing layer that tracks the active source (`yfinance` or `tiingo`) and surfaces it in API responses.
+- Black-Litterman Bayesian portfolio optimizer (`models/portfolio_opt.py`) supporting investor views with confidence levels.
+- Mean-variance weight optimization using sequential least squares programming (SLSQP) under long-only, full-investment, and per-asset maximum-weight constraints.
+- `/api/v1/portfolio/optimize` REST endpoint delivering prior and posterior allocation recommendations.
+- Decision tab with prior/posterior donut charts, weight shift tables, and actionable rebalancing orders (Buy/Hold/Sell).
+
+### Changed
+- Data fetcher architecture refactored into a unified pipeline to support multiple upstream providers.
+
+## [0.1.0]
+
+### Added
+- Core equity data fetcher built on `yfinance` for retrieving historical OHLCV time series.
+- Risk computation engine (`models/risk_engine.py`) supporting log-return transformation.
+- Historical Expected Shortfall (ES) at 99% confidence via historical simulation.
+- Monte Carlo ES simulation with configurable path counts (1,000–50,000) and deterministic random seeding.
+- Multi-day Monte Carlo portfolio price path generator for stress visualization.
+- Asset correlation matrix heatmap rendered via ECharts.
+- `/api/v1/risk/evaluate` REST endpoint exposing ES, sample paths, and correlation data.
+- Streamlit dashboard skeleton with the Risk tab as the primary analytical view.

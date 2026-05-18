@@ -1,0 +1,127 @@
+markets:
+  us:
+    - name: us_quality_tech_finance
+      market: us
+      tickers: [AAPL, MSFT, AVGO, JPM, UNH]
+      weights: [0.24, 0.23, 0.18, 0.18, 0.17]
+      benchmark: SPY
+      description: US quality megacap sleeve with technology, financials, and healthcare exposure.
+    - name: us_ai_infrastructure_barbell
+      market: us
+      tickers: [NVDA, AMD, SMH, XLU, XLI]
+      weights: [0.22, 0.16, 0.24, 0.18, 0.20]
+      benchmark: SPY
+      description: Semiconductor-heavy AI infrastructure sleeve balanced with utilities and industrials.
+    - name: us_dividend_low_volatility
+      market: us
+      tickers: [VIG, USMV, KO, PEP, MCD]
+      weights: [0.28, 0.22, 0.16, 0.16, 0.18]
+      benchmark: SPY
+      description: Defensive US income and low-volatility holdout sleeve.
+    - name: us_mid_small_sector_mix
+      market: us
+      tickers: [MDY, IJR, XLI, XLP, XLRE]
+      weights: [0.24, 0.22, 0.20, 0.18, 0.16]
+      benchmark: SPY
+      description: Mid-cap, small-cap, and sector ETF mix for non-megacap US external evaluation.
+  hk:
+    - name: hk_platform_financial_core
+      market: hk
+      tickers: [0700.HK, 9988.HK, 0005.HK, 0388.HK, 0003.HK]
+      weights: [0.24, 0.22, 0.18, 0.18, 0.18]
+      benchmark: ^HSI
+      description: Hong Kong platform and financial core with local utility ballast.
+    - name: hk_consumption_insurance_mix
+      market: hk
+      tickers: [3690.HK, 1299.HK, 2318.HK, 2020.HK, 0002.HK]
+      weights: [0.22, 0.20, 0.18, 0.20, 0.20]
+      benchmark: ^HSI
+      description: Consumption, insurance, and utility holdout sleeve for HK risk transfer.
+    - name: hk_income_property_credit
+      market: hk
+      tickers: [0823.HK, 0016.HK, 1109.HK, 0066.HK, 2638.HK]
+      weights: [0.24, 0.20, 0.18, 0.18, 0.20]
+      benchmark: ^HSI
+      description: Property, infrastructure, transport, and income-oriented HK sleeve.
+    - name: hk_china_etf_cross_asset
+      market: hk
+      tickers: [02800.HK, 03033.HK, 02822.HK, 03188.HK, 02828.HK]
+      weights: [0.25, 0.18, 0.20, 0.19, 0.18]
+      benchmark: ^HSI
+      description: Hong Kong-listed ETF basket spanning HSI, China A-share, and technology exposures.
+  cn:
+    - name: cn_consumption_financial_core
+      market: cn
+      tickers: ["600519", "601318", "600036", "000651", "600887"]
+      weights: [0.24, 0.20, 0.20, 0.18, 0.18]
+      benchmark: "000300"
+      description: A-share consumption and financial quality sleeve.
+    - name: cn_new_energy_healthcare
+      market: cn
+      tickers: ["300750", "002594", "300760", "600276", "002415"]
+      weights: [0.24, 0.21, 0.19, 0.18, 0.18]
+      benchmark: "000300"
+      description: China growth sleeve spanning batteries, EVs, healthcare, and security technology.
+    - name: cn_state_owned_defensive
+      market: cn
+      tickers: ["600900", "601398", "601857", "600028", "601088"]
+      weights: [0.24, 0.20, 0.18, 0.18, 0.20]
+      benchmark: "000300"
+      description: State-owned defensive and resource-heavy A-share holdout sleeve.
+    - name: cn_broad_factor_etf
+      market: cn
+      tickers: ["510300", "510500", "159915", "512100", "588000"]
+      weights: [0.26, 0.20, 0.18, 0.18, 0.18]
+      benchmark: "000300"
+      description: China ETF holdout basket across CSI 300, CSI 500, ChiNext, and STAR exposures.
+  jp:
+    - name: jp_auto_electronics_core
+      market: jp
+      tickers: [7203.T, 6758.T, 6501.T, 8035.T, 9433.T]
+      weights: [0.24, 0.20, 0.18, 0.20, 0.18]
+      benchmark: ^N225
+      description: Japan large-cap export, electronics, and telecom core sleeve.
+    - name: jp_financial_industrial_mix
+      market: jp
+      tickers: [8306.T, 8316.T, 8766.T, 7011.T, 7267.T]
+      weights: [0.23, 0.19, 0.18, 0.20, 0.20]
+      benchmark: ^N225
+      description: Japanese financials, industrials, and auto exposure outside the training sets.
+    - name: jp_defensive_domestic
+      market: jp
+      tickers: [9432.T, 4502.T, 4452.T, 3382.T, 9020.T]
+      weights: [0.22, 0.18, 0.20, 0.20, 0.20]
+      benchmark: ^N225
+      description: Defensive domestic Japan sleeve with telecom, pharma, staples, retail, and rail.
+    - name: jp_index_style_blend
+      market: jp
+      tickers: [1321.T, 1475.T, 1489.T, 2516.T, 1306.T]
+      weights: [0.26, 0.20, 0.18, 0.18, 0.18]
+      benchmark: ^N225
+      description: Japan ETF style and index blend for holdout allocation tests.
+  tw:
+    - name: tw_semiconductor_platform_core
+      market: tw
+      tickers: [2330.TW, 2454.TW, 2303.TW, 2382.TW, 2882.TW]
+      weights: [0.28, 0.20, 0.18, 0.16, 0.18]
+      benchmark: ^TWII
+      description: Taiwan semiconductor and platform core with financial ballast.
+    - name: tw_electronics_supply_chain
+      market: tw
+      tickers: [2317.TW, 2308.TW, 3711.TW, 3034.TW, 2357.TW]
+      weights: [0.24, 0.20, 0.18, 0.18, 0.20]
+      benchmark: ^TWII
+      description: Electronics supply-chain sleeve for Taiwan external generalization.
+    - name: tw_defensive_income_financials
+      market: tw
+      tickers: [2412.TW, 1303.TW, 1216.TW, 2881.TW, 2891.TW]
+      weights: [0.22, 0.18, 0.20, 0.20, 0.20]
+      benchmark: ^TWII
+      description: Defensive telecom, materials, staples, and financial income sleeve.
+    - name: tw_index_factor_mix
+      market: tw
+      tickers: [0050.TW, 0056.TW, 006208.TW, 00878.TW, 00919.TW]
+      weights: [0.26, 0.18, 0.20, 0.18, 0.18]
+      benchmark: ^TWII
+      description: Taiwan ETF factor and income mix with a ticker set distinct from training.
+

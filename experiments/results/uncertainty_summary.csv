@@ -1,0 +1,29 @@
+task,group,metric,point_estimate,ci_lower,ci_upper,unit_count,row_count,n_bootstrap,method
+crisis_warning,horizon_1d,roc_auc,0.6325255668626888,0.6093340804861546,0.6533021464112411,19,34238,500,portfolio bootstrap percentile CI over saved frozen-artifact predictions
+crisis_warning,horizon_1d,pr_auc,0.1019725859712293,0.09279507047464765,0.11299146480600243,19,34238,500,portfolio bootstrap percentile CI over saved frozen-artifact predictions
+crisis_warning,horizon_1d,top_decile_lift,2.298778761174319,2.0902060838648135,2.5202872593641312,19,34238,500,portfolio bootstrap percentile CI over saved frozen-artifact predictions
+crisis_warning,horizon_1d,brier_score,0.04981824027346404,0.04820084069640057,0.05142957233467356,19,34238,500,portfolio bootstrap percentile CI over saved frozen-artifact predictions
+crisis_warning,horizon_1d,log_loss,0.20473083116033128,0.19958717895382996,0.20952382538731606,19,34238,500,portfolio bootstrap percentile CI over saved frozen-artifact predictions
+crisis_warning,horizon_5d,roc_auc,0.6325178356548097,0.6099425609315202,0.651136624602366,19,34086,500,portfolio bootstrap percentile CI over saved frozen-artifact predictions
+crisis_warning,horizon_5d,pr_auc,0.09038849776911512,0.08261343791493171,0.09889736560226657,19,34086,500,portfolio bootstrap percentile CI over saved frozen-artifact predictions
+crisis_warning,horizon_5d,top_decile_lift,1.9013312824784137,1.8472118701962863,2.370518328059436,19,34086,500,portfolio bootstrap percentile CI over saved frozen-artifact predictions
+crisis_warning,horizon_5d,brier_score,0.0526977677102285,0.050885007482289794,0.05451442894614567,19,34086,500,portfolio bootstrap percentile CI over saved frozen-artifact predictions
+crisis_warning,horizon_5d,log_loss,0.21805493619441038,0.20869709660416766,0.22831686049009725,19,34086,500,portfolio bootstrap percentile CI over saved frozen-artifact predictions
+allocation,equal_weight,sharpe,1.1202749013389206,0.6803846281336742,1.724935029109945,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,equal_weight,model_score,58.27894736842105,53.79184210526316,62.69052631578948,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,equal_weight,benchmark_excess_return,-0.15257960956612782,-0.26068040484606525,-0.029038558938394368,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,inverse_volatility,sharpe,1.125455464199305,0.6677661539569525,1.628413425151537,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,inverse_volatility,model_score,58.947368421052644,52.884605263157894,63.806315789473686,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,inverse_volatility,benchmark_excess_return,-0.1933607678848891,-0.32362443557736853,-0.06754189328468173,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,mean_variance,sharpe,1.1799011820953573,0.7091609830265949,1.7992020897755092,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,mean_variance,model_score,59.46315789473684,53.77473684210527,64.56500000000001,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,mean_variance,benchmark_excess_return,-0.12283414070907339,-0.26497203504066746,0.02223646900942512,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,raw_black_litterman,sharpe,1.1580815463724254,0.7008099476452732,1.7748670899982715,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,raw_black_litterman,model_score,59.53157894736843,54.522763157894744,64.28302631578947,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,raw_black_litterman,benchmark_excess_return,-0.15511262700945025,-0.2925762540463021,-0.029928306348894367,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,smart_policy,sharpe,1.1531479396291389,0.7033079556843519,1.844202975144288,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,smart_policy,model_score,59.27368421052632,54.26289473684211,64.19684210526316,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,smart_policy,benchmark_excess_return,-0.1556613924732192,-0.28970735941890424,-0.023200025512088156,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,smart_policy_oos_guard,sharpe,1.1914368546982488,0.7228705968245361,1.7183554521285338,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,smart_policy_oos_guard,model_score,59.921052631578945,55.255526315789474,65.15776315789475,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows
+allocation,smart_policy_oos_guard,benchmark_excess_return,-0.136285309356052,-0.28436697972715197,-0.019133444668850395,19,19,500,portfolio bootstrap percentile CI over saved OOS metric rows

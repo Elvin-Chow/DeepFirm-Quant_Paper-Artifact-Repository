@@ -1,0 +1,41 @@
+dates:
+  start_date: "2018-01-01"
+  end_date: "2026-05-15"
+
+artifact_root: artifacts/crisis_warning
+holdout_portfolios: experiments/portfolios/holdout_portfolios.yaml
+api_key: null
+allow_sandbox_data: false
+
+crisis_warning:
+  horizons: [1, 5]
+  tail_quantile: 0.05
+  target_method: dynamic_quantile
+  fixed_threshold: null
+  probability_threshold: 0.60
+  calibration_bins: 10
+  write_shap_drivers: true
+  max_shap_rows_per_portfolio: 500
+
+allocation:
+  test_ratio: 0.20
+  rebalance_days: 21
+  risk_free_rate: 0.0
+  risk_aversion: 2.5
+  max_weight: 0.40
+  min_weight: 0.02
+  turnover_penalty: 0.005
+  concentration_penalty: 0.005
+  use_market_cap_prior: false
+  baselines:
+    equal_weight: true
+    inverse_volatility: true
+    mean_variance: true
+    raw_black_litterman: true
+    smart_policy: true
+    smart_policy_oos_guard: true
+
+outputs:
+  results_dir: experiments/results
+  figures_dir: experiments/figures
+  tables_dir: experiments/tables
