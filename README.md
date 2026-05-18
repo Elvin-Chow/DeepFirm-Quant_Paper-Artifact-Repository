@@ -176,9 +176,9 @@ Before creating the public GitHub repository or release archive:
 2. Confirm no API keys, tokens, passwords, or private provider credentials are present.
 3. Run artifact validation and the paper guardrail tests.
 4. Regenerate `paper/result_hash_manifest.md`.
-5. Create the GitHub repository, push the cleaned tree, and record the final commit SHA.
+5. Create the GitHub repository, push the cleaned tree, and create the release tag.
 6. If needed, create a Zenodo/Code Ocean/institutional archive DOI.
-7. Confirm the repository URL, release tag, commit SHA, and archival-DOI status in the paper package.
+7. Confirm the repository URL, release tag, and archival-DOI status in the paper package.
 
 See `RELEASE_CHECKLIST.md` for the full pre-publication checklist.
 

@@ -1,12 +1,11 @@
 # Result Hash Manifest
 
-Generated: 2026-05-18T23:07:36+08:00
+Generated: 2026-05-18T23:25:56+08:00
 
 Scope: key paper result CSV, JSON, PNG, Markdown table, release documentation, dependency/lockfile, experiment-config, CI, and LaTeX artifacts. Hashes are SHA-256 over file bytes.
 
 Repository URL: https://github.com/Elvin-Chow/DeepFirm-Quant_Paper-Artifact-Repository
 Release tag: `v0.1-submission`
-Commit SHA: `bb5053309084281e8892b0ea730925720ab6e09f`
 
 | Path | Bytes | SHA-256 |
 |---|---:|---|
@@ -15,7 +14,7 @@ Commit SHA: `bb5053309084281e8892b0ea730925720ab6e09f`
 | `.gitignore` | 1024 | `1f90097c93d1754725b37d64ae646a5c6d68ea0d8f81491ad870b1da2423801d` |
 | `CITATION.cff` | 337 | `e797a482bbaed23f1ce4ef3c910da19e710797cf4ebafb50f2404a57870088ad` |
 | `DATA.md` | 2564 | `8cab019e5c9628b4a1196775bdc1755b14e5913653b6b6d378af813cfdc19d4f` |
-| `README.md` | 6135 | `c3277faae18b99f246d5e8b3483483513acc0300921e7d01cb024beaa6ae1d6b` |
+| `README.md` | 6118 | `d8a4114c0ec4514d84e344ef76ac96b778b46462ccd176e30c48744056664711` |
 | `RELEASE_CHECKLIST.md` | 2178 | `548a05c3c9903253558c92d4bfc8621fee6724e9b4ac08a79c4258750854342d` |
 | `experiments/figures/ablation_summary.png` | 65799 | `f21a2fb4e96b1c4c1887f1230ad84b9c157eff63a76fea8597e0bf26acf8bd30` |
 | `experiments/figures/allocation_oos_curves.png` | 168798 | `227ad3387fced5120a25e474f191e9ef99a23eacd9d3fa499976d224247b0d88` |
@@ -91,8 +90,8 @@ Commit SHA: `bb5053309084281e8892b0ea730925720ab6e09f`
 | `paper/latex/IEEEtran.cls` | 281957 | `da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7` |
 | `paper/latex/ieeeaccess.cls` | 50941 | `479790e4192266b5031ce648196486ed0d9ea849c5b5a7eb64335086550eafd5` |
 | `paper/latex/main.bbl` | 11631 | `620fa6bd207d5ff15e33ea9575d1dea442038b937384744ccde1915ec8633f44` |
-| `paper/latex/main.pdf` | 955308 | `bdbd9bd7bafdbbfcc69f51700b6e4d189d7909e46b2bdfbabd51929a0a6c60dd` |
-| `paper/latex/main.tex` | 54477 | `30b5ce3edeb83b7bb7d2396b35a25209c299669b6fd92e02011b9716f700a13f` |
+| `paper/latex/main.pdf` | 954663 | `21f54c71743aeaa21ba6235253d0883cd9a9f6d0ba498eabcaf1767524809fd7` |
+| `paper/latex/main.tex` | 54443 | `4d8411fbce62d193751e367ca482a40392cdd9d1eae5f91fd4b56bf4d59da24f` |
 | `paper/latex/spotcolor.sty` | 2231 | `a9c5bacbf5b832e5eac61393bf1b330fc75fa353cbc9cf4319c227de49bfa5fa` |
 | `paper/latex_conversion_plan.md` | 3730 | `730c54c9a6e2a9b5220486b5d7e79ae66d4fc9052a6b74cbe672f9a01f758f04` |
 | `paper/main_draft.md` | 29748 | `42477293458e68ee0adacb0d04cc89487af26d61220d51e85abe6e8a70968156` |

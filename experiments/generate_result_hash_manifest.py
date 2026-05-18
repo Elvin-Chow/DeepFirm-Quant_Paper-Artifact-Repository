@@ -71,25 +71,6 @@ DEFAULT_PATTERNS = [
 ]
 
 
-def git_release_sha(root: Path = ROOT) -> str:
-    commands = (
-        ["git", "rev-list", "-n", "1", RELEASE_TAG],
-        ["git", "rev-parse", "HEAD"],
-    )
-    for command in commands:
-        try:
-            return subprocess.run(
-                command,
-                cwd=root,
-                check=True,
-                capture_output=True,
-                text=True,
-            ).stdout.strip()
-        except Exception:
-            continue
-    return "not recorded in this generation context"
-
-
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -138,7 +119,6 @@ def write_markdown(path: Path, rows: list[dict[str, object]]) -> None:
         "",
         f"Repository URL: {REPOSITORY_URL}",
         f"Release tag: `{RELEASE_TAG}`",
-        f"Commit SHA: `{git_release_sha()}`",
         "",
         "| Path | Bytes | SHA-256 |",
         "|---|---:|---|",

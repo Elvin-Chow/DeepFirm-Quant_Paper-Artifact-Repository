@@ -2,12 +2,12 @@
 
 ## A-level blockers remaining
 
-1. Public GitHub tag publication is not verified from this environment. The local tag `v0.1-submission` exists and points to `bb5053309084281e8892b0ea730925720ab6e09f`, but `git push origin v0.1-submission` failed because GitHub HTTPS credentials are not configured here. If the public repository must expose the tag before submission, push this tag from an authenticated shell.
+1. Public GitHub tag publication is not verified from this environment. The local tag `v0.1-submission` exists, but `git push origin v0.1-submission` failed because GitHub HTTPS credentials are not configured here. If the public repository must expose the tag before submission, push this tag from an authenticated shell or create the release tag through the GitHub web UI.
 
 ## B-level issues remaining
 
 1. The PDF was regenerated with Tectonic, not a full TeX Live `pdflatex`/BibTeX workflow, because `pdflatex`, `latexmk`, and `bibtex` are not on PATH. Tectonic completed and wrote `paper/latex/main.pdf`, but it still reports pre-existing layout warnings and a rerun warning.
-2. The cited release commit remains the clean artifact commit requested for Data Availability; this cleanup commit records the final manuscript metadata, manifest, and PDF/source synchronization edits.
+2. This cleanup pass uses the release tag as the version identifier, avoiding a self-referential commit-SHA mismatch between the manuscript source and the commit that contains it.
 
 ## Final repository URL
 
@@ -17,13 +17,9 @@ https://github.com/Elvin-Chow/DeepFirm-Quant_Paper-Artifact-Repository
 
 `v0.1-submission`
 
-## Commit SHA
-
-`bb5053309084281e8892b0ea730925720ab6e09f`
-
 ## Data Availability check
 
-Passed. `paper/latex/main.tex` now contains the public repository URL, release tag, commit SHA, and the archival DOI status sentence: "An archival DOI will be provided through a release archive when available."
+Passed. `paper/latex/main.tex` now contains the public repository URL, release tag, and the archival DOI status sentence: "An archival DOI will be provided through a release archive when available."
 
 ## Zero-overlap framing check
 
