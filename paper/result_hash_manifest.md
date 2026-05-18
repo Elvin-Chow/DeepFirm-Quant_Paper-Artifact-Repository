@@ -1,6 +1,6 @@
 # Result Hash Manifest
 
-Generated: 2026-05-18T23:34:19+08:00
+Generated: 2026-05-19T00:05:10+08:00
 
 Scope: key paper result CSV, JSON, PNG, Markdown table, release documentation, dependency/lockfile, experiment-config, CI, and LaTeX artifacts. Hashes are SHA-256 over file bytes.
 
@@ -90,8 +90,8 @@ Release tag: `v0.1-submission`
 | `paper/latex/IEEEtran.cls` | 281957 | `da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7` |
 | `paper/latex/ieeeaccess.cls` | 50941 | `479790e4192266b5031ce648196486ed0d9ea849c5b5a7eb64335086550eafd5` |
 | `paper/latex/main.bbl` | 11631 | `620fa6bd207d5ff15e33ea9575d1dea442038b937384744ccde1915ec8633f44` |
-| `paper/latex/main.pdf` | 954663 | `21f54c71743aeaa21ba6235253d0883cd9a9f6d0ba498eabcaf1767524809fd7` |
-| `paper/latex/main.tex` | 54443 | `4d8411fbce62d193751e367ca482a40392cdd9d1eae5f91fd4b56bf4d59da24f` |
+| `paper/latex/main.pdf` | 954475 | `a3ab43b6c53b736afaa7424ece06a6192fe36f9de8b0763b74d85b54f28f1af6` |
+| `paper/latex/main.tex` | 54201 | `668345fd283a69b73a3ad6dfdba120e5f1b8b6a179edf1151665aa665cefa7a1` |
 | `paper/latex/spotcolor.sty` | 2231 | `a9c5bacbf5b832e5eac61393bf1b330fc75fa353cbc9cf4319c227de49bfa5fa` |
 | `paper/latex_conversion_plan.md` | 3730 | `730c54c9a6e2a9b5220486b5d7e79ae66d4fc9052a6b74cbe672f9a01f758f04` |
 | `paper/main_draft.md` | 29748 | `42477293458e68ee0adacb0d04cc89487af26d61220d51e85abe6e8a70968156` |
